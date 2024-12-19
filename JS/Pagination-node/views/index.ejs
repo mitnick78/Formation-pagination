@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+  <div id="product-list">
+    <% products.forEach(product=> { %>
+      <div class="product">
+        <h3>
+          <%= product.title %>
+        </h3>
+        <p>
+          <%= product.description %>
+        </p>
+        <img src="<%= product.thumbnail %>" alt="<%= product.title %>" style="width: 100px; height: auto;">
+        <p>Prix : <%= product.price %> €</p>
+      </div>
+      <% }) %>
+  </div>
+  <div id="paginations">
+    <% for (let i=1; i <=totalPages; i++) { %>
+      <a href="/page/<%= i %>">
+        <button class="pagination-button <%= currentPage === i ? 'active' : '' %>">
+          <%= i %>
+        </button>
+      </a>
+      <% } %>
+  </div>
+</body>
+
+</html>
